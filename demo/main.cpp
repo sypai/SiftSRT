@@ -34,12 +34,8 @@ void createTempSRT(std::vector<SubtitleItem*> sub)
 
 int main(int argc, char* argv[]) {
 
-//    clock_t start_time,end_time;
-//    start_time = clock();
-//    int i;
-
     if (argc < 2) {
-        std::cout << "Please pass the filename as an argument" << std::endl;
+        std::cout << "[No argument passed] " << "Enter the name of the subtitle file to sift!" << std::endl;
         return 0;
     }
 
@@ -55,25 +51,23 @@ int main(int argc, char* argv[]) {
     createTempSRT(sub);
 
     std::vector<std::string> fingerprints;
-    fingerprints.emplace_back("HASGFDHASGSFHGADHGFAS_SDSFJHGDSHJFSG");
-    fingerprints.emplace_back("HASGFDHFJHGDSHJFSG");
-    fingerprints.emplace_back("HASGFDHADSFSDFRIUEYHKJSGSFHGADHGFAS_SDSFJHGDSHJFSG");
-
     std::vector<long int> timestamps;
+
+    fingerprints.emplace_back("HASGFDHASGSFHGADHGFAS+/SDSFJHGDSHJFSG");
     timestamps.emplace_back(7000);
+
+    fingerprints.emplace_back("HASGFDHFJHGDSHJFSG");
     timestamps.emplace_back(12000);
+
+    fingerprints.emplace_back("HASGFDHADSFSDFRIUEYHKJSGSFHGADHGFASashbv3535SDSFJHGDSHJFSG");
     timestamps.emplace_back(17000);
-//
+
     co_oCCurEditor *edit;
     edit = new co_oCCurEditor(sub);
     edit->EnrichSRT("temp.srt", fingerprints, timestamps);
     edit->AdjustSRT("example.srt", 2000, true);
 
-//    std::cout << sizeof(SubtitleItem) << std::endl;
-//    std::cout << sizeof(spf) << std::endl;
-//    std::cout << sizeof(co_oCCurEditor) << std::endl;
 
-//    end_time = clock();
-//    std::cout<<"Time Taken = "<<(end_time - start_time)/CLOCKS_PER_SEC<<std::endl;
+
     return 0;
 }
