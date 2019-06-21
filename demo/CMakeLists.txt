@@ -3,4 +3,8 @@ project(siftSRT)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(siftSRT main.cpp ../SiftSRT.h)
+include_directories(../)
+
+set(SOURCE_FILES main.cpp ../SiftSRT.h)
+
+add_executable(siftSRT ${SOURCE_FILES})
