@@ -43,7 +43,13 @@ co_oCCurEditor* edit;
 edit = new co_oCCurEditor(sub);
 ```
 
-The objects `sub` and `edit`, sift the given SRT file and are to be used for Subtitle Parsing and Editing.
+Using the SubtitleParser object create a `co_oCCurParser` object.
+```
+co_oCCurParser* parse;
+parse = new co_oCCurParser(sub);
+```
+
+The objects `sub`, `edit` and `parse` can be used to **sift** the given SRT file and are to be used for Subtitle Parsing and Editing.
 
 
 ## Documentation
